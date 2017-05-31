@@ -13,15 +13,20 @@ configure_aws_cli() {
   aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
 }
 
+prune_dangling_images() {
+  echo "2. Prune docker dangling images ..."
+  docker rmi $(docker images -f "dangling=true" -q)
+}
+
 push_ecr_image() {
-  echo "2. Pushinging docker image to AWS ..."
+  echo "3. Pushinging docker image to AWS ..."
 
   eval $(aws ecr get-login --region us-east-2)
   docker push $AWS_ACCOUNT_ID.dkr.ecr.us-east-2.amazonaws.com/starlite/micro-1:latest
 }
 
 deploy_cluster() {
-  echo "3. Deploying docker images into cluster ..."
+  echo "4. Deploying docker images into cluster ..."
 
   family="starlite-micro-1"
 
@@ -79,5 +84,6 @@ register_definition() {
 }
 
 configure_aws_cli
+prune_dangling_images
 push_ecr_image
 deploy_cluster
