@@ -5,7 +5,7 @@ const port = 9000;
 
 app.get('/', (req, res) => {
   res.json({ 
-    instance: 'hello micro-1 , waly, test #4',
+    instance: 'hello micro-1 , waly, test #5',
     hostname: os.hostname()
   });
 });
