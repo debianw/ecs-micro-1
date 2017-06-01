@@ -76,7 +76,7 @@ make_task_def() {
       "portMappings": [
         {
           "containerPort": 9000,
-          "hostPort": 9000
+          "hostPort": 0
         }
       ]
     }
