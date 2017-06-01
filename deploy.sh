@@ -73,7 +73,12 @@ make_task_def() {
       "essential": true,
       "memory": 200,
       "cpu": 10,
-      "portMappings": []
+      "portMappings": [
+        {
+          "containerPort": 9000,
+          "hostPort": 0
+        }
+      ]
     }
   ]'
 
