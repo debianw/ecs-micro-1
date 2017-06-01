@@ -3,7 +3,7 @@ const app = express();
 const port = 9000;
 
 app.get('/', (req, res) => {
-  res.json({ instance: 'hello micro-1 , waly, test #1.1'});
+  res.json({ instance: 'hello micro-1 , waly, test #2'});
 });
 
 app.listen(port, () => {
