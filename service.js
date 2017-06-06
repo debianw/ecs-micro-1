@@ -10,6 +10,13 @@ app.get('/', (req, res) => {
   });
 });
 
+app.get('/micro-1', (req, res) => {
+  res.json({ 
+    micro: '/micro-1/*',
+    hostname: os.hostname()
+  });
+});
+
 app.listen(port, () => {
   console.log(`Micro #1 listening on port ${port}`);
 });
